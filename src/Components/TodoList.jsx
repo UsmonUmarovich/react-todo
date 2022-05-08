@@ -12,7 +12,7 @@ export const TodoList = (props) => {
                         <li>
                             <br/>
                             <ul>
-                                <li className='li'>{todos.todo}</li>
+                                <li className='li'>{todos}</li>
                                 <li><button className='x' onClick={() => props.deleteTodo(todos.id)}>X</button></li>
                             </ul>
                             <br />

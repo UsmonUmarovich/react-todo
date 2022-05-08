@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Todo(props) {
 
     const [todo, setTodo] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const submitHandler = (event) => {
         event.preventDefault()
@@ -10,14 +11,19 @@ function Todo(props) {
         if (!todo.trim()) {
             return alert('Malumot yozilmagan')
         }
-        
-        const addTodo = {
-            id: Date.now(),
-            todo: todo,
-        }
-        props.setTodos(i => [...i, addTodo])
-        setTodo('')
-    }
+        let oldTodos = localStorage.getItem('todo')
+        ? JSON.parse(localStorage.getItem('todo'))
+        : [];
+        localStorage.setItem("todo", JSON.stringify([...oldTodos, todo]));
+        setLoading(!loading)
+    };
+
+    useEffect(() => {
+        let todos = localStorage.getItem('todo')
+        ? JSON.parse(localStorage.getItem('todo'))
+        : [];
+        props.setTodos(todos)
+    }, [loading])
 
     return (
         <div className="App">

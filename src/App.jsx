@@ -7,8 +7,8 @@ function App() {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    
-    if(!value.trim()) return alert("Todo kiriting")
+
+    if (!value.trim()) return alert("Todo kiriting")
 
     let oldTodos = localStorage.getItem("todo")
       ? JSON.parse(localStorage.getItem("todo"))
@@ -38,23 +38,24 @@ function App() {
 
   return (
     <div className="App">
-		<h1>TODO</h1>
+      <h1>TODO</h1>
       <form onSubmit={submitHandler} style={{ width: 500, margin: "0 auto" }}>
         <input
           value={value}
           onChange={(event) => setValue(event.target.value)}
-          type="text"
-          placeholder="todo"
+          type="check"
+          placeholder="TODO"
         />
         <button className="btn">ADD</button>
       </form>
 
       <ul>
         {todos.map((todo, index) => (
-		  <div className="todo">
-          <li key={index}>{todo.text} </li>
-		  <button className="x" onClick={() => deleteTodo(todo.id)}>X</button>
-		  </div>
+          <div className="todo">
+            <li key={index}>{todo.text} </li>
+            <button className="x" onClick={() => deleteTodo(todo.id)}>X</button>
+            <hr />
+          </div>
         ))}
       </ul>
     </div>

@@ -71,20 +71,27 @@ li{
 
 .x{
     padding: 6px 12px;
-    border-radius: 50px;
+    border-radius: 100px;
     border: 1px solid red;
     color: red;
     background: inherit;
     position: absolute;
     margin-left: 330px;
-    margin-top: 5px;
+    margin-top: -40px;
+    transition: 200ms;
+}
+
+.x:hover{
+    background-color: red;
+    color: #fff;
+    transform: scale(1.2);
+}
+
+.x:active{
+    transform: scale(0.90);
 }
 
 p{
     color: #fff;
     font-size: 30px;
-}
-
-.todo{
-    display: flex;
 }

@@ -30,7 +30,7 @@ input{
     padding: 10px 110px;
     border: none;
     border-radius: 20px;
-    margin-left: 10px;
+    margin-left: 60px;
     text-align: center;
 }
 
@@ -40,8 +40,8 @@ input{
     border: none;
     background-color: rgb(0, 106, 255);
     position: absolute;
-    left: 1100px;
-    top: 272px;
+    margin-left: -60px;
+    top: 202px;
     color: #fff;
     transition: 200ms;
 }
@@ -54,22 +54,19 @@ input{
     transform: scale(0.95);
 }
 
-ol{
-    background-color: #fff;
-    width: 370px;   
-    height: 480px;
-    border-radius: 20px;
-    margin-left: 10px;
-}
 ul{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 
-.li{
+li{
     text-align: center;
     padding: 5px;
     font-size: 20px;
+    background-color: #fff;
+    width: 370px;   
+    height: 50px;
 }
 
 .x{
@@ -78,9 +75,16 @@ ul{
     border: 1px solid red;
     color: red;
     background: inherit;
+    position: absolute;
+    margin-left: 330px;
+    margin-top: 5px;
 }
 
 p{
     color: #fff;
     font-size: 30px;
+}
+
+.todo{
+    display: flex;
 }

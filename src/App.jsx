@@ -8,7 +8,7 @@ function App() {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    if (!value.trim()) return alert("Todo kiriting")
+    if (!value.trim()) return alert("Todo kiriting");
 
     let oldTodos = localStorage.getItem("todo")
       ? JSON.parse(localStorage.getItem("todo"))
@@ -20,7 +20,7 @@ function App() {
     };
     localStorage.setItem("todo", JSON.stringify([...oldTodos, newTodo]));
     setLoading(!loading);
-    setValue("")
+    setValue("");
   };
 
   useEffect(() => {
@@ -31,10 +31,10 @@ function App() {
   }, [loading]);
 
   const deleteTodo = (id) => {
-    const newTodos = todos.filter(todo => todo.id !== id)
-    localStorage.setItem("todo", JSON.stringify(newTodos))
-    setLoading(!loading)
-  }
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    localStorage.setItem("todo", JSON.stringify(newTodos));
+    setLoading(!loading);
+  };
 
   return (
     <div className="App">
@@ -52,8 +52,11 @@ function App() {
       <ul>
         {todos.map((todo, index) => (
           <div className="todo">
+            <input type="checkbox" className="checkbox"/>
             <li key={index}>{todo.text} </li>
-            <button className="x" onClick={() => deleteTodo(todo.id)}>X</button>
+            <button className="x" onClick={() => deleteTodo(todo.id)}>
+              X
+            </button>
             <hr />
           </div>
         ))}
